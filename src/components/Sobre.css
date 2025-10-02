@@ -1,0 +1,234 @@
+
+.sobre-colunas {
+  display: flex;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0px 20px 60px 20px;
+  text-align: justify;
+}
+
+.coluna {
+  flex: 1;
+  color: var(--cor-secundaria);
+  font-size: 0.5rem !important;
+  line-height: 1;
+}
+
+@media (max-width: 768px) {
+  .sobre-colunas {
+    flex-direction: column;
+  }
+}
+
+/* Container da introdução com imagem e texto lado a lado */
+.intro-container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 0 auto 60px;
+  max-width: 900px;
+  padding: 0 20px;
+}
+
+.intro-imagem img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--cor-primaria);
+}
+
+.intro-texto h3 {
+  font-size: 1.8rem;
+  color: var(--cor-primaria);
+  margin-bottom: 10px;
+}
+
+.intro-texto p {
+  color: var(--cor-secundaria);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .intro-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .intro-imagem img {
+    margin-bottom: 15px;
+  }
+}
+
+/* Linha do tempo container */
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto 80px;
+  padding: 0 20px;
+}
+
+/* Linha vertical central */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  background-color: var(--cor-primaria);
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+/* Cada item da timeline */
+.timeline-item {
+  position: relative;
+  width: 45%;
+  padding: 10px 0;
+  margin-bottom: 60px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  color: var(--cor-texto);
+}
+
+/* Quando visível */
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Data fora da linha, à esquerda ou direita */
+.year {
+  position: absolute;
+  top: 20px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--cor-primaria);
+  font-size: 1rem;
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* Data à esquerda da linha */
+.timeline-item.left {
+  left: -40px;
+  text-align: right; /* Conteúdo alinhado para a direita, dentro do lado esquerdo */
+}
+
+.timeline-item.left .content {
+  margin-right: 20px; /* dá um espaçamento para não encostar na linha */
+  text-align: left;
+}
+
+.timeline-item.right {
+  left: 55%;
+  text-align: left; /* Conteúdo alinhado para a esquerda, dentro do lado direito */
+}
+
+.timeline-item.right .content {
+  margin-left:20px; /* espaço para não encostar na linha */
+  text-align: right;
+}
+
+/* Data do lado oposto */
+.year-left {
+  left: -calc(100% + 90px) ;
+  text-align: left !important;
+}
+
+.year-right {
+  right: -calc(100% + 20px);
+  text-align: right;
+}
+
+
+/* Bandeirinhas triangulares */
+.timeline-item.left .flag {
+  position: absolute;
+  top: 20px;
+  right: -70px;
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 15px solid var(--cor-primaria);
+  opacity: 0;
+  transform: translateX(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  z-index: 1;
+}
+
+.timeline-item.right .flag {
+  position: absolute;
+  top: 20px;
+  left: -30px;
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-right: 15px solid var(--cor-primaria);
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  z-index: 1;
+}
+
+/* Bandeirinhas aparecem quando o item fica visível */
+.timeline-item.visible .flag {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Tag tipo */
+.timeline-item .tag {
+  display: inline-block;
+  background-color: var(--cor-primaria);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  user-select: none;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 10px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 40px;
+    margin-bottom: 40px;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .timeline-item.left,
+  .timeline-item.right {
+    left: 0 !important;
+    text-align: left !important;
+  }
+
+  .year {
+    position: relative !important;
+    right: auto !important;
+    left: auto !important;
+    margin-bottom: 5px;
+    text-align: left !important;
+    font-size: 0.9rem;
+  }
+
+  .timeline-item .flag {
+    display: none;
+  }
+}

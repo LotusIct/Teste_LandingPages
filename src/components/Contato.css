@@ -1,0 +1,114 @@
+/* Container para inputs com label flutuante */
+.form-group {
+  position: relative;
+  margin-bottom: 5px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 15px 15px 15px 10px;
+  border: 1px solid var(--cinza-suave);
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f8f8f8;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--cor-primaria);
+  outline: none;
+}
+
+/* Label estilo flutuante */
+label {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  color: var(--cinza-suave);
+  font-size: 1rem;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: 0.3s ease all;
+  
+  padding: 0 5px;
+}
+
+/* Quando o input estiver focado ou com conteúdo, sobe a label */
+input:focus + label,
+textarea:focus + label,
+input:not(:placeholder-shown) + label,
+textarea:not(:placeholder-shown) + label {
+  top: -8px;
+  font-size: 0.8rem;
+  color: var(--cor-primaria);
+  background-color: var(--cor-branco);
+}
+/* Contato links lado a lado com fonte maior e moderna */
+.contato-links {
+  margin-top: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row; /* lado a lado */
+  gap: 60px; /* espaçamento maior entre os dois */
+  justify-content: center;
+  color: var(--cor-secundaria);
+  font-size: 1.25rem; /* fonte maior */
+  font-weight: 600;
+  letter-spacing: 0.03em; /* leve espaçamento entre letras */
+}
+
+.link-item {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* espaçamento entre título e link */
+}
+
+.link-item strong {
+  color: var(--cor-primaria);
+  min-width: 100px; /* espaço fixo para alinhar textos */
+  text-align: right;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.link-item a {
+  color: var(--cor-primaria);
+  font-weight: 600;
+  word-break: break-word;
+  transition: color 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.link-item a:hover {
+  color: var(--cor-destaque);
+  text-decoration: underline;
+}
+.submit{
+  padding:10px !important;
+}
+/* Responsividade para telas pequenas */
+@media (max-width: 480px) {
+  .contato-links {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    font-size: 1.1rem;
+  }
+  
+  .link-item {
+    justify-content: center;
+  }
+  
+  .link-item strong {
+    min-width: auto;
+    font-size: 1.1rem;
+  }
+  
+  .link-item a {
+    font-size: 1rem;
+  }
+}
