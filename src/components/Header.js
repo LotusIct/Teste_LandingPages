@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.css';
-//import logo from '../assets/logo.png'; // logo real aqui
+import logo from '../assets/logomg.png'; // logo real aqui
 import { FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 
 const Header = () => {
@@ -8,7 +8,7 @@ const Header = () => {
     <header className="header">
       {/* Lado esquerdo: Logo */}
       <div className="header-left">
-        {/* <img src={logo} alt="Logo Marcos Galbiati" className="logo-img" /> */}
+        <img src={logo} alt="Logo Marcos Galbiati" className="logo-img" /> 
       </div>
 
       {/* Centro: Navegação */}

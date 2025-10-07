@@ -1,20 +1,11 @@
-// src/components/IntroVideo.jsx
 import React from 'react';
-import './IntroVideo.css';
+import './IntroSection.css';
+import introImage from '../assets/fundo.png'; // substitua pelo nome correto da imagem
 
-const IntroVideo = () => {
+const IntroSection = () => {
   return (
-    <div className="intro-video">
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="video-bg"
-      >
-        <source src="/videos/intro.mp4" type="video/mp4" />
-        Seu navegador não suporta o vídeo.
-      </video>
+    <div className="intro-section">
+      <img src={introImage} alt="Transformando o Direito com Tecnologia" className="intro-bg" /> 
 
       <div className="overlay-content">
         <h1>Transformando o Direito com Tecnologia</h1>
@@ -24,4 +15,4 @@ const IntroVideo = () => {
   );
 };
 
-export default IntroVideo;
+export default IntroSection;
