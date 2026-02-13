@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import './Sobre.css';
 
 import foto1 from '../assets/advogado.jpg';
