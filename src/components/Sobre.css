@@ -1,234 +1,194 @@
-
-.sobre-colunas {
-  display: flex;
-  gap: 40px;
+/* ===== CONTAINER CENTRAL ===== */
+.container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0px 20px 60px 20px;
-  text-align: justify;
+  padding: 0 3rem;
 }
 
-.coluna {
-  flex: 1;
-  color: var(--cor-secundaria);
-  font-size: 0.5rem !important;
-  line-height: 1;
+/* ===== SEÇÕES ===== */
+.sobre-secao {
+  margin: 7rem 0;
 }
 
-@media (max-width: 768px) {
-  .sobre-colunas {
-    flex-direction: column;
-  }
+.sobre-titulo {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #00695C;
 }
 
-/* Container da introdução com imagem e texto lado a lado */
-.intro-container {
+.sobre-titulo.central {
+  text-align: center;
+}
+
+/* ===== BLOCO TEXTO + IMAGEM ===== */
+.sobre-bloco {
   display: flex;
   align-items: center;
-  gap: 30px;
-  margin: 0 auto 60px;
-  max-width: 900px;
-  padding: 0 20px;
+  justify-content: center;
+  gap: 4rem;
 }
 
-.intro-imagem img {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid var(--cor-primaria);
+.sobre-bloco.reverse {
+  flex-direction: row-reverse;
 }
 
-.intro-texto h3 {
-  font-size: 1.8rem;
-  color: var(--cor-primaria);
-  margin-bottom: 10px;
+.sobre-imagem img {
+  width: 420px;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
 
-.intro-texto p {
-  color: var(--cor-secundaria);
-  font-size: 1rem;
-  line-height: 1.5;
+.sobre-texto {
+  max-width: 500px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #444;
 }
 
-/* Responsivo */
-@media (max-width: 768px) {
-  .intro-container {
-    flex-direction: column;
-    text-align: center;
-  }
 
-  .intro-imagem img {
-    margin-bottom: 15px;
-  }
-}
+/* ===== TIMELINE HORIZONTAL ===== */
+/* ===== TIMELINE MODERNA ===== */
 
-/* Linha do tempo container */
-.timeline {
+.timeline-horizontal {
   position: relative;
-  max-width: 900px;
-  margin: 0 auto 80px;
-  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4rem;
+  padding: 4rem 0;
 }
 
-/* Linha vertical central */
-.timeline::before {
-  content: '';
+/* Linha central */
+.timeline-horizontal::before {
+  content: "";
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: 50%;
+  left: 5%;
+  width: 90%;
+  height: 3px;
+  background: linear-gradient(90deg, #00695C, #AEEA00);
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+/* Cada item */
+.timeline-item-horizontal {
+  position: relative;
+  flex: 1;
+  text-align: center;
+  z-index: 1;
+}
+
+/* Ano */
+.timeline-item-horizontal .year {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  display: block;
+  color: #00695C;
+  transition: 0.3s;
+}
+
+/* Bolinha */
+.timeline-connector {
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border: 3px solid #AEEA00;
+  border-radius: 50%;
+  margin: 0 auto;
+  transition: 0.4s ease;
+  cursor: pointer;
+}
+
+/* Hover efeito na bolinha */
+.timeline-item-horizontal:hover .timeline-connector {
+  background: #00695C;
+  transform: scale(1.2);
+  border: 3px solid #00695C;
+}
+
+/* Card escondido inicialmente */
+.timeline-content {
+  position: absolute;
+  bottom: 140%;
   left: 50%;
-  width: 4px;
-  background-color: var(--cor-primaria);
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(20px);
+  width: 250px;
+  background: white;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+}
+
+/* Mostrar no hover */
+.timeline-item-horizontal:hover .timeline-content {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Tag */
+.timeline-content .tag {
+  display: inline-block;
+  background: linear-gradient(90deg, #333333, #00695C);
+  color: white;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.75rem;
+  border-radius: 20px;
+  margin-bottom: 0.5rem;
+}
+
+/* Título */
+.timeline-content h3 {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Texto */
+.timeline-content p {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: #555;
+}
+/* ===== CITAÇÃO ===== */
+
+.citacao-container {
+  margin-top: 3rem;
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.citacao {
+  font-size: 1.5rem;
+  font-style: italic;
+  line-height: 1.8;
+  color: #333;
+  position: relative;
+  padding: 1rem 2rem;
+}
+
+/* Linha decorativa */
+.citacao::before {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, #00695C, #AEEA00);
+  margin: 0 auto 2rem auto;
   border-radius: 2px;
 }
 
-/* Cada item da timeline */
-.timeline-item {
-  position: relative;
-  width: 45%;
-  padding: 10px 0;
-  margin-bottom: 60px;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  color: var(--cor-texto);
-}
-
-/* Quando visível */
-.timeline-item.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Data fora da linha, à esquerda ou direita */
-.year {
-  position: absolute;
-  top: 20px;
-  font-weight: 700;
-  font-style: italic;
-  color: var(--cor-primaria);
-  font-size: 1rem;
-  user-select: none;
-  white-space: nowrap;
-}
-
-/* Data à esquerda da linha */
-.timeline-item.left {
-  left: -40px;
-  text-align: right; /* Conteúdo alinhado para a direita, dentro do lado esquerdo */
-}
-
-.timeline-item.left .content {
-  margin-right: 20px; /* dá um espaçamento para não encostar na linha */
-  text-align: left;
-}
-
-.timeline-item.right {
-  left: 55%;
-  text-align: left; /* Conteúdo alinhado para a esquerda, dentro do lado direito */
-}
-
-.timeline-item.right .content {
-  margin-left:20px; /* espaço para não encostar na linha */
-  text-align: right;
-}
-
-/* Data do lado oposto */
-.year-left {
-  left: -calc(100% + 90px) ;
-  text-align: left !important;
-}
-
-.year-right {
-  right: -calc(100% + 20px);
-  text-align: right;
-}
-
-
-/* Bandeirinhas triangulares */
-.timeline-item.left .flag {
-  position: absolute;
-  top: 20px;
-  right: -70px;
-  width: 0;
-  height: 0;
-  border-top: 12px solid transparent;
-  border-bottom: 12px solid transparent;
-  border-left: 15px solid var(--cor-primaria);
-  opacity: 0;
-  transform: translateX(10px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  z-index: 1;
-}
-
-.timeline-item.right .flag {
-  position: absolute;
-  top: 20px;
-  left: -30px;
-  width: 0;
-  height: 0;
-  border-top: 12px solid transparent;
-  border-bottom: 12px solid transparent;
-  border-right: 15px solid var(--cor-primaria);
-  opacity: 0;
-  transform: translateX(-10px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  z-index: 1;
-}
-
-/* Bandeirinhas aparecem quando o item fica visível */
-.timeline-item.visible .flag {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Tag tipo */
-.timeline-item .tag {
-  display: inline-block;
-  background-color: var(--cor-primaria);
-  color: white;
-  padding: 4px 10px;
-  border-radius: 5px;
-  font-size: 0.85rem;
+.autor {
+  display: block;
+  margin-top: 1rem;
   font-weight: 600;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  user-select: none;
-}
-
-/* Ajustes responsivos */
-@media (max-width: 768px) {
-  .timeline::before {
-    left: 10px;
-  }
-
-  .timeline-item {
-    width: 100%;
-    padding-left: 40px;
-    margin-bottom: 40px;
-    opacity: 1 !important;
-    transform: none !important;
-  }
-
-  .timeline-item.left,
-  .timeline-item.right {
-    left: 0 !important;
-    text-align: left !important;
-  }
-
-  .year {
-    position: relative !important;
-    right: auto !important;
-    left: auto !important;
-    margin-bottom: 5px;
-    text-align: left !important;
-    font-size: 0.9rem;
-  }
-
-  .timeline-item .flag {
-    display: none;
-  }
+  color: #00695C;
+  letter-spacing: 1px;
 }

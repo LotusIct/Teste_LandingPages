@@ -1,6 +1,6 @@
 import React from 'react';
 import './Contato.css';
-//import imagemContato from './imagem-contato.jpg';  // Imagem que você deseja usar
+import logo from '../assets/logomg.png';
 
 const Contato = () => {
   return (
@@ -45,6 +45,20 @@ const Contato = () => {
           {/* <img src={imagemContato} alt="Contato" />*/}
         </div> 
       </div>
+
+      {/* Linha separadora */}
+      <hr className="contato-linha" />
+
+      {/* Rodapé */}
+      <footer className="contato-footer">
+        <div className="footer-logo">
+          <img src={logo} alt="Logo" /> 
+        </div>
+        <div className="footer-text">
+          <p className='impacto'>Liderando TI com visão estratégica e alta performance.</p>
+          &copy; {new Date().getFullYear()} Marcos Galbiati. Todos os direitos reservados.
+        </div>
+      </footer>
     </section>
   );
 };

@@ -1,7 +1,8 @@
+/* ================== FORMULÁRIO ================== */
 /* Container para inputs com label flutuante */
 .form-group {
   position: relative;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 
 input,
@@ -31,7 +32,6 @@ label {
   pointer-events: none;
   transform: translateY(-50%);
   transition: 0.3s ease all;
-  
   padding: 0 5px;
 }
 
@@ -45,31 +45,48 @@ textarea:not(:placeholder-shown) + label {
   color: var(--cor-primaria);
   background-color: var(--cor-branco);
 }
-/* Contato links lado a lado com fonte maior e moderna */
+
+/* Botão enviar */
+.submit {
+  padding: 12px 25px !important;
+  background-color: var(--cor-primaria);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit:hover {
+  background-color: var(--cor-destaque);
+}
+
+/* ================== LINKS DE CONTATO ================== */
 .contato-links {
   margin-top: 30px;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
-  flex-direction: row; /* lado a lado */
-  gap: 60px; /* espaçamento maior entre os dois */
+  flex-direction: row;
+  gap: 60px;
   justify-content: center;
   color: var(--cor-secundaria);
-  font-size: 1.25rem; /* fonte maior */
+  font-size: 1.25rem;
   font-weight: 600;
-  letter-spacing: 0.03em; /* leve espaçamento entre letras */
+  letter-spacing: 0.03em;
 }
 
 .link-item {
   display: flex;
   align-items: center;
-  gap: 10px; /* espaçamento entre título e link */
+  gap: 10px;
 }
 
 .link-item strong {
   color: var(--cor-primaria);
-  min-width: 100px; /* espaço fixo para alinhar textos */
+  min-width: 100px;
   text-align: right;
   font-weight: 700;
   font-size: 1.25rem;
@@ -87,10 +104,52 @@ textarea:not(:placeholder-shown) + label {
   color: var(--cor-destaque);
   text-decoration: underline;
 }
-.submit{
-  padding:10px !important;
+
+/* ================== LINHA SEPARADORA ================== */
+.contato-linha {
+  width: 80%;
+  border: 0;
+  max-width: 1200px;
+  border-top: 2px solid #cbd5e1;
+  margin: 60px auto 40px auto;
 }
-/* Responsividade para telas pequenas */
+
+/* ================== RODAPÉ ================== */
+.contato-footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 0px;
+}
+
+.footer-logo img {
+  width: 70px;
+}
+.footer-text {
+  color: var(--cinza-suave);
+  font-size: 0.9rem;
+  text-align: right;
+}
+.impacto {
+  font-size: 0.9rem;      /* tamanho pequeno */
+  font-style: italic;     /* letra tombada */
+  font-weight: 400;       /* normal, sem exagero */
+  color: var(--cor-secundaria);  /* cor suave, você pode ajustar */
+  letter-spacing: 0.02em; /* leve espaçamento entre letras */
+  text-transform: none;   /* mantém maiúsculas/minúsculas originais */
+}
+
+/* ================== RESPONSIVIDADE ================== */
+@media (max-width: 768px) {
+  .contato-footer {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
+
 @media (max-width: 480px) {
   .contato-links {
     flex-direction: column;
@@ -98,16 +157,16 @@ textarea:not(:placeholder-shown) + label {
     text-align: center;
     font-size: 1.1rem;
   }
-  
+
   .link-item {
     justify-content: center;
   }
-  
+
   .link-item strong {
     min-width: auto;
     font-size: 1.1rem;
   }
-  
+
   .link-item a {
     font-size: 1rem;
   }
